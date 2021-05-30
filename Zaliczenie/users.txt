@@ -1,0 +1,5 @@
+3;Roman;Gierek;gierek@interia.pl;333333333
+2;Joanna;Swider;swider@gmail.com;678678678
+4;Władek;Zabylski;zabylski@o2.pl;234234234
+1;Jacek;Kwasny;kwasy@interia.pl;678987555
+5;Zbigniew;Msiok;msiok@interia.pl;923546734
