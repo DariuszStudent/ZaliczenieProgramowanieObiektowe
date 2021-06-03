@@ -6,7 +6,8 @@ namespace BusinessCard
 {
     public class UserService
     {
-        protected List<User> Users;
+        protected List<User> Users { get; set; }
+
         private string _fileName = @"../../../users.txt";
 
         public UserService()
@@ -78,6 +79,11 @@ namespace BusinessCard
                 else return id;
             }
             return id;
+        }
+
+        public void SortListById()
+        {
+            Users = Users.OrderBy(x => x.Id).ToList();
         }
     }
 }

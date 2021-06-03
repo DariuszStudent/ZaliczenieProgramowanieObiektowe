@@ -16,6 +16,7 @@ namespace BusinessCard
             Console.WriteLine("2. Wyświetl użytkowników.");
             Console.WriteLine("3. Usuń użytkownika.");
             Console.WriteLine("4. Stwórz wizytówkę.");
+            Console.WriteLine("5. Sortuj listę według ID.");
             Console.WriteLine("9. Wyjdź.");
         }
     }

@@ -38,6 +38,12 @@ namespace BusinessCard
             userService.RemoveUser(id);
         }
 
+        public void SortList()
+        {
+            userService.SortListById();
+            Console.WriteLine("Lista została posortowana.");
+        }
+
         public void businessCreate()
         {
             ShowUsers();

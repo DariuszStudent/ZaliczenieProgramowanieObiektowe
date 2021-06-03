@@ -35,6 +35,9 @@ namespace BusinessCard
                     case '4':
                         businessCardApp.businessCreate();
                         break;
+                    case '5':
+                        businessCardApp.SortList();
+                        break;
                     case '9':
                         exit = true;
                         return;
