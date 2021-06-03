@@ -19,14 +19,17 @@ namespace BusinessCard
             foreach (var line in fileLines)
             {
                 var lineItems = line.Split(';');
-                if (int.TryParse(lineItems[0], out var id) && int.TryParse(lineItems[4], out var phoneNumber))
+                if (int.TryParse(lineItems[0], out var id) &&
+                    int.TryParse(lineItems[4], out var phoneNumber))
                 {
-                    AddUser(id, lineItems[1], lineItems[2], lineItems[3], phoneNumber, false);
+                    AddUser(id, lineItems[1], lineItems[2], 
+                        lineItems[3], phoneNumber, false);
                 }
             }
         }
 
-        public void AddUser(int id, string firsName, string lastName, string email, int phoneNumber, bool shouldToSave = true)
+        public void AddUser(int id, string firsName, string lastName, 
+            string email, int phoneNumber, bool shouldToSave = true)
         {
             var user = new User(id, firsName, lastName, email, phoneNumber);
             Users.Add(user);

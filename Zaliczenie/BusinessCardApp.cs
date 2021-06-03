@@ -16,7 +16,7 @@ namespace BusinessCard
             var lastName = Console.ReadLine();
             Console.WriteLine("Podaj e-mail: ");
             var email = Console.ReadLine();
-            Console.WriteLine("Podaj numer telefonus: ");
+            Console.WriteLine("Podaj numer telefonu: ");
             var phoneNumber = Helpers.JustInts();
             userService.AddUser(id, userName, lastName, email, phoneNumber);
         }
@@ -43,7 +43,19 @@ namespace BusinessCard
             ShowUsers();
             Console.WriteLine("Podaj ID użytkownika którego chcesz stworzyć wizytówkę: ");
             var id = Helpers.JustInts();
-            businessCardCreate.CheckId(id);
+            var userToMake = businessCardCreate.CheckIdForCreate(id);
+            if (userToMake != null)
+            {
+                businessCardCreate.CreateTable(userToMake);
+                Console.WriteLine("Stworzyłeś swoją wizytówkę w pliku *txt, która wygląda tak: ");
+                businessCardCreate.ShowTable(userToMake);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Przykro mi nie udało Ci się stworzyć wizytówki, zły Id podany.");
+                Console.ReadKey();
+            }
         }
     }
 }
