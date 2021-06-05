@@ -1,6 +1,6 @@
-3;Roman;Gierek;gierek@interia.pl;333333333
+1;Konrad;Kononowicz;kononowicz@interia.pl;675876324
 2;Joanna;Swider;swider@gmail.com;678678678
 4;Władek;Zabylski;zabylski@o2.pl;234234234
 5;Zbigniew;Msiok;msiok@interia.pl;923546734
-6;Elwira;Kowalska;kowalska@interia.pl;432543543
-1;Konrad;Kononowicz;kononowicz@interia.pl;675876324
+7;Konrad;Biegunowski;biegunowski@o2.pl;765444222
+3;Ryszard;Zbyszewski;zbyszewski@o2.pl;678326233

@@ -9,7 +9,7 @@ namespace BusinessCard
         private List<string> UserToPrint { get; set; }
 
         private string _fileNameCard = @"../../../wizytowka.txt";
-        private int _tableWidth = 40;
+        private int _tableWidth;
 
         public User CheckIdForCreate(int userInputId)
         {
@@ -21,19 +21,10 @@ namespace BusinessCard
             return null;
         }
 
-        public void ShowTable(User user)
-        {
-            Console.WriteLine((PrintLine()));
-            Console.WriteLine((PrintRow(user.FirstName)));
-            Console.WriteLine((PrintRow(user.LastName)));
-            Console.WriteLine((PrintRow(user.Email)));
-            Console.WriteLine((PrintRow(user.PhoneNumber.ToString())));
-            Console.WriteLine((PrintLine()));
-        }
-
         public void CreateTable(User user)
         {
             UserToPrint = new List<string>();
+            _tableWidth = TableWidth(user);
 
             UserToPrint.Add(PrintLine());
             UserToPrint.Add(PrintRow(user.FirstName));
@@ -42,6 +33,16 @@ namespace BusinessCard
             UserToPrint.Add(PrintRow(user.PhoneNumber.ToString()));
             UserToPrint.Add(PrintLine());
             SaveTextToNewFile();
+        }
+
+        public void ShowTable(User user)
+        {
+            Console.WriteLine((PrintLine()));
+            Console.WriteLine((PrintRow(user.FirstName)));
+            Console.WriteLine((PrintRow(user.LastName)));
+            Console.WriteLine((PrintRow(user.Email)));
+            Console.WriteLine((PrintRow(user.PhoneNumber.ToString())));
+            Console.WriteLine((PrintLine()));
         }
 
         public string PrintLine()
@@ -60,8 +61,6 @@ namespace BusinessCard
 
         public string AlignCentre(string text)
         {
-            text = text.Length > _tableWidth ? text.Substring(0, _tableWidth - 3) + "..." : text;
-
             if (string.IsNullOrEmpty(text))
             {
                 return new string(' ', _tableWidth);
@@ -70,6 +69,19 @@ namespace BusinessCard
             {
                 return text.PadRight(_tableWidth - (_tableWidth - text.Length) / 2).PadLeft(_tableWidth);
             }
+        }
+
+        public int TableWidth(User user)
+        {
+            var users = user.ToString();
+            var usersRow = users.Split(';');
+            var result = 0;
+            foreach (var item in usersRow)
+            {
+                if (item.Length > result) result = item.Length;
+            }
+
+            return result + 4;
         }
 
         public void SaveTextToNewFile()
